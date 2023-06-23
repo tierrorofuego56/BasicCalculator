@@ -1,228 +1,169 @@
 import java.util.Scanner;
 
-import java.lang.Math;
+public class Main{
 
-public class Main
-{
-
-    public static void nextScreen()
-    {
-        System.out.println("(1.] +) (2.] -) (3.] *) (4.] /) (5.] **) (6. %)");
-        System.out.println("(7.] sin) (8.] cos) (9.] tan) (10] %%) (11.] √) (12]. C)");
-    }
-
-    public static void operatorScreen()
-    {
-        System.out.println("(1.] +) (2.] -) (3.] *) (4.] /) (5.] **) (6. %)");
-    }
-
-
-    public static void menuScreen()
-    {
-        System.out.println("Welcome to Calculator");
-
-        System.out.println("Choose function. Enter anything else to STOP.");
-
-        nextScreen();
+    public static void main(String[] args){
         
-    }
-
-    public static void main(String[] args)
-    {
         Scanner sc = new Scanner(System.in);
 
-        menuScreen();
+        UI.calcScreen();
 
-        double a = 0;
+        int choice = sc.nextInt();
 
-        int c = sc.nextInt();
-
-        while((c == 1)||(c == 2)||(c == 3)||(c == 4)||(c == 5)||(c == 6)||(c == 7)||(c == 8)||(c == 9)||(c == 10)||(c == 11)||(c == 12))
-        {
-            if(c == 1)
-            {
-                System.out.println("Input a number");
-
-                double b = sc.nextDouble();
-
-                a = a + b;
-
-                System.out.println(a);
-
-                System.out.println("Choose another?");
-
-                nextScreen();
-
-                c = sc.nextInt();
-            }
-            else if(c == 2)
-            {
-                System.out.println("Input a number");
-
-                double b = sc.nextDouble();
-
-                a = a - b;
-
-                System.out.println(a);
-
-                System.out.println("Choose another?");
-
-                nextScreen();
-
-                c = sc.nextInt();
-            }
-            else if(c == 3)
-            {
-                System.out.println("Input a number");
-
-                double b = sc.nextDouble();
-
-                a = a * b;
-
-                System.out.println(a);
+        while(choice > 0 && choice < 17)
+            switch(choice){
+            case 1:
             
-                System.out.println("Choose another?");
+            System.out.println(Operation.performAddition(sc));
 
-                nextScreen();
+            System.out.println("Choose another?");
 
-                c = sc.nextInt();
-            }
-            else if(c == 4)
-            {
-                System.out.println("Input a number");
+            choice = sc.nextInt();
 
-                double b = sc.nextDouble();
+            break;
 
-                if(b == 0)
-                {
-                    System.out.println("undefined");
+            case 2:
+            System.out.println(Operation.performSubtraction(sc));
 
-                    System.out.println("Choose another?");
+            System.out.println("Choose another?");
 
-                    nextScreen();
+            choice = sc.nextInt();
 
-                    c = sc.nextInt();   
-                }
-                else
-                {
-                    a = a / b;
+            break;
 
-                    System.out.println(a);
+            case 3:
+            System.out.println(Operation.performMultiplication(sc));
+
+            System.out.println("Choose another?");
+
+            choice = sc.nextInt();
+
+            break;
+
+            case 4:
+            System.out.println(Operation.performDivision(sc));
+
+            System.out.println("Choose another?");
+
+            choice = sc.nextInt();
+
+            break;
             
-                    System.out.println("Choose another?");
+            case 5:
+            System.out.println(Operation.performModulation(sc));
 
-                    nextScreen();
+            System.out.println("Choose another?");
 
-                    c = sc.nextInt();
-                }
-            }
-            else if(c == 5)
-            {
-                System.out.println("Input a number");
+            choice = sc.nextInt();
 
-                double b = sc.nextDouble();
+            break;
 
-                a = Math.pow(a, b);
-
-                System.out.println(a);
-
-                System.out.println("Choose another?");
-
-                nextScreen();
-
-                c = sc.nextInt();
-
-            }
-            else if(c == 6)
-            {
-                System.out.println("Input a number");
-
-                double b = sc.nextDouble();
-
-                a = a % b;
-
-                System.out.println(a);
+            case 6:
             
-                System.out.println("Choose another?");
+            Operation.performValue(sc, 2.7182818285);
 
-                nextScreen();
+            System.out.println("Choose another?");
 
-                c = sc.nextInt();
-            }
-            else if(c == 7)
-            {
-               a = Math.sin(a);
+            choice = sc.nextInt();
+            
+            break;
+            
+            case 7:
 
-               System.out.println(a);
+            System.out.println(Operation.performExponentation(sc));
 
-               System.out.println("Choose another?");
-               
-               nextScreen();
+            System.out.println("Choose another?");
 
-               c = sc.nextInt();
+            choice = sc.nextInt();
+            
+            break;
 
-            }
-            else if(c == 8)
-            {
-                a = Math.cos(a);
+            case 8:
 
-               System.out.println(a);
+            System.out.println(Operation.performAbsolute());
 
-               System.out.println("Choose another?");
-               
-               nextScreen();
+            System.out.println("Choose another?");
 
-               c = sc.nextInt();
-            }
-            else if(c == 9)
-            {
-                a = Math.tan(a);
+            choice = sc.nextInt();
+            
+            break;
+            case 9:
+            
+            Operation.performValue(sc, 3.1415926536);
 
-               System.out.println(a);
+            System.out.println("Choose another?");
 
-               System.out.println("Choose another?");
-               
-               nextScreen();
+            choice = sc.nextInt();
+            
+            break;
+            case 10:
 
-               c = sc.nextInt();
-            }
-            else if(c == 10)
-            {
-                a = a/100;
+            System.out.println(Operation.performSquareRoot());
 
-                System.out.println(a);
+            System.out.println("Choose another?");
 
-                System.out.println("Choose another?");
+            choice = sc.nextInt();
+            
+            break;
+            case 11:
 
-                nextScreen();
+            System.out.println(Operation.performLog());
 
-               c = sc.nextInt();
-            }
-            else if(c == 11)
-            {
-                a = Math.sqrt(a);
+            System.out.println("Choose another?");
 
-                System.out.println(a);
+            choice = sc.nextInt();
+            
+            break;
+            
+            case 12:
 
-                System.out.println("Choose another?");
-                
-                nextScreen();
+            System.out.println(Operation.performLog10());
 
-                c = sc.nextInt();
-            }
-            else if(c == 12)
-            {
-                a = 0;
+            System.out.println("Choose another?");
 
-                System.out.println(a);
+            choice = sc.nextInt();
+            
+            break;
+            case 13:
 
-                System.out.println("Cleared! Choose another?");
+            System.out.println(Operation.performSin());
 
-                nextScreen();
+            System.out.println("Choose another?");
 
-                c = sc.nextInt();
+            choice = sc.nextInt();
+            
+            break;
+            case 14:
 
-            }
+            System.out.println(Operation.performCos());
+
+            System.out.println("Choose another?");
+
+            choice = sc.nextInt();
+            
+            break;
+            case 15:
+
+            System.out.println(Operation.performTan());
+
+            System.out.println("Choose another?");
+
+            choice = sc.nextInt();
+            
+            break;
+            case 16:
+
+            Operation.performReset();
+
+            System.out.println("RESET");
+
+            System.out.println("Choose another?");
+
+            choice = sc.nextInt();
+            
+            break;
         }
+        sc.close();
     }
+        
 }
